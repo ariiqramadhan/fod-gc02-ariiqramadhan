@@ -9,3 +9,18 @@ export interface User {
 }
 
 export type Users = User[];
+
+export interface Product {
+    _id: ObjectId;
+    name: string;
+    slug: string;
+    description: string;
+    excerpt: string;
+    price: number;
+    thumbnail: string;
+    images: string[];
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+export type Products = Product[];
