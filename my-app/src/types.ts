@@ -24,3 +24,11 @@ export interface Product {
 }
 
 export type Products = Product[];
+
+export interface Wishlist {
+    _id: ObjectId;
+    userId: ObjectId;
+    productId: ObjectId;
+    createdAt: Date;
+    updatedAt: Date;
+}
