@@ -8,6 +8,8 @@ export interface User {
     password: string;
 }
 
+export type UserInput = Omit<User, "_id">;
+
 export type Users = User[];
 
 export interface Product {
