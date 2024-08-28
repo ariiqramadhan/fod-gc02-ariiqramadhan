@@ -22,7 +22,7 @@ export default function Navbar() {
         }
     }, [])
 
-    const topNav = "navbar flex justify-between px-16 text-[#FFF] hover:bg-[#FFF] hover:text-[#000] fixed top-0 z-50"
+    const topNav = "navbar flex justify-between px-16 text-[#FFF] hover:bg-[#FFF] hover:text-[#000] fixed z-50"
     const scrollNav = "navbar flex justify-between px-16 bg-[#FFF] text-[#000] fixed top-0 z-50"
 
     return (
