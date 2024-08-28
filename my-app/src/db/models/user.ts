@@ -34,3 +34,11 @@ export const addUser = async (newUser: UserInput) => {
     const data = await users.insertOne(newUser);
     return data;
 }
+
+export const getUserByUsername = async (username: string) => {
+    const db = await getDB();
+    const users = db.collection(USER_COLL);
+
+    const findUser = await users.findOne({ username });
+    return findUser;
+}
