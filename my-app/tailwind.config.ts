@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        cardo: ['var(--font-cardo)']
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
