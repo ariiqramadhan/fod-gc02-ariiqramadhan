@@ -15,6 +15,11 @@ export default function Navbar() {
 
     useEffect(() => {
         window.addEventListener('scroll', changeColor);
+        return () => {
+            if (window) {
+                window.removeEventListener('scroll', changeColor);
+            }
+        }
     }, [])
 
     const topNav = "navbar flex justify-between px-16 text-[#FFF] hover:bg-[#FFF] hover:text-[#000] fixed top-0 z-50"
