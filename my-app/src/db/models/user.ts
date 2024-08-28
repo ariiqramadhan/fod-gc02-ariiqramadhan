@@ -1,16 +1,8 @@
-import { DATABASE_NAME } from "@/constant";
-import { getMongoInstance } from "../config"
 import { UserInput } from "@/types";
 import { hashPassword } from "../helpers/bcrypt";
+import { getDB } from "../config";
 
 const USER_COLL = "users";
-
-export const getDB = async () => {
-    const client = await getMongoInstance();
-    const db = client.db(DATABASE_NAME);
-
-    return db;
-}
 
 export const addUser = async (newUser: UserInput) => {
     const db = await getDB();

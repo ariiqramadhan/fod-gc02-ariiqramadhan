@@ -1,3 +1,4 @@
+import { DATABASE_NAME } from "@/constant";
 import { MongoClient } from "mongodb";
 
 const connectionString = process.env.MONGO_URI
@@ -14,4 +15,11 @@ export const getMongoInstance = async () => {
     }
 
     return client;
+}
+
+export const getDB = async () => {
+    const client = await getMongoInstance();
+    const db = client.db(DATABASE_NAME);
+
+    return db;
 }
