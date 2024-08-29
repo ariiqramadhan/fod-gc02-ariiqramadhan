@@ -20,6 +20,12 @@ export async function POST(req: NextRequest) {
     
         return NextResponse.json(data);
     } catch (err) {
-        console.log(err);
+        if (err instanceof Error) {
+            if (err.cause === 'NOT_FOUND') {
+                console.log(err.message);
+                return NextResponse.json({message: err.message}, { status: 404 });
+            }
+        }
+        return NextResponse.json({message: 'Internal Server Error'}, { status: 500 });
     }
 }
