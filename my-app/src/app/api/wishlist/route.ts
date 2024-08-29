@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
 
         const data = await addWishlist(newWishlist);
     
-        return NextResponse.json(data);
+        return NextResponse.json(data, { status: 201 });
     } catch (err) {
         if (err instanceof Error) {
             if (err.cause === 'NOT_FOUND') {
