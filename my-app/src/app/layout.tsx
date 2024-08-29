@@ -40,11 +40,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${roboto_condensed.className} ${cardo.variable} ${marcellus.variable}`}>
-                <Promo />
-                <div>
-                    <Navbar />
-                    {children}
-                </div>
+                {children}
             </body>
         </html>
     );
