@@ -1,7 +1,13 @@
-export default function RootLayout({
+import NoAuth from "@/components/NoAuth";
+
+export default function NoAuthLayout({
     children,
-}: Readonly<{
+}: {
     children: React.ReactNode;
-}>) {
-    return <>{children}</>;
+}) {
+    return (
+        <NoAuth>
+            {children}
+        </NoAuth>
+    )
 }
