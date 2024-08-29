@@ -34,3 +34,5 @@ export interface Wishlist {
     createdAt: Date;
     updatedAt: Date;
 }
+
+export type WishlistInput = Omit<Wishlist, "_id">
