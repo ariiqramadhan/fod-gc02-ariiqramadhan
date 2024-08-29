@@ -49,24 +49,24 @@ export default function Home() {
                 </div>
             </div>
             <div className="w-screen h-screen flex gap-5 p-5">
-                <div className="flex-1 relative justify-center flex items-center">
-                    <h1 className="text-[#FFF] font-marcel text-6xl select-none">UNESSENTIALS</h1>
+                <div className="flex-1 w-[calc(100vw/3-5rem/3)] relative justify-center flex items-center">
+                    <h1 className="text-[#FFF] font-marcel text-5xl select-none">UNESSENTIALS</h1>
                     <img
                         src={'/home/home-coll-1.jpg'}
                         className="object-cover h-full absolute top-0 -z-50"
                         alt="coll-1"
                     />
                 </div>
-                <div className="flex-1 relative justify-center flex items-center">
-                    <h1 className="text-[#FFF] font-marcel text-6xl select-none">FEAR OF DOG</h1>
+                <div className="flex-1 w-[calc(100vw/3-5rem/3)] relative justify-center flex items-center">
+                    <h1 className="text-[#FFF] font-marcel text-5xl select-none">FEAR OF DOG</h1>
                     <img
                         src={'/home/home-coll-2.jpg'}
                         className="object-cover h-full absolute top-0 -z-50"
                         alt="coll-2"
                     />
                 </div>
-                <div className="flex-1 relative justify-center flex items-center">
-                    <h1 className="text-[#FFF] font-marcel text-6xl select-none">ATHLETICS</h1>
+                <div className="flex-1 w-[calc(100vw/3-5rem/3)] relative justify-center flex items-center">
+                    <h1 className="text-[#FFF] font-marcel text-5xl select-none">ATHLETICS</h1>
                     <img
                         src={'/home/home-coll-3.jpg'}
                         className="object-cover h-full absolute top-0 -z-50"
