@@ -20,7 +20,7 @@ export default function Navbar() {
                 window.removeEventListener('scroll', changeColor);
             }
         }
-    }, [])
+    }, []);
 
     const topNav = "navbar flex justify-between px-16 text-[#FFF] hover:bg-[#FFF] hover:text-[#000] fixed z-50"
     const scrollNav = "navbar flex justify-between px-16 bg-[#FFF] text-[#000] fixed top-0 z-50"
@@ -28,9 +28,9 @@ export default function Navbar() {
     return (
         <div className={color ? scrollNav : topNav}>
             <div className="flex-1 justify-start gap-12 text-xs">
-                <a href="">FEAR OF DOG</a>
-                <a href="">UNESSENTIALS</a>
-                <a href="">ATHLETICS</a>
+                <a href="" className="hover:underline">FEAR OF DOG</a>
+                <a href="" className="hover:underline">UNESSENTIALS</a>
+                <a href="" className="hover:underline">ATHLETICS</a>
             </div>
             <div className="flex-1 justify-center">
                 <Link
@@ -41,9 +41,9 @@ export default function Navbar() {
                 </Link>
             </div>
             <div className="flex-1 justify-end gap-12 text-xs">
-                <a href="">SEARCH</a>
-                <a href="">ACCOUNT</a>
-                <a href="">BAG</a>
+                <a href="" className="hover:underline">SEARCH</a>
+                <a href="" className="hover:underline">ACCOUNT</a>
+                <a href="" className="hover:underline">BAG</a>
             </div>
         </div>
     );

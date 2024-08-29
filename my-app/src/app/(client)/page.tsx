@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Home() {
     return (
         <>
@@ -13,44 +15,85 @@ export default function Home() {
             </div>
             <div className="p-5 flex overflow-x-auto gap-5">
                 <div className="w-[20rem] shrink-0">
-                    <img src={'/home/home-feat-1.jpg'} alt="home-feat-1" className="w-full object-cover"/>
+                    <img
+                        src={'/home/home-feat-1.jpg'}
+                        alt="home-feat-1"
+                        className="w-full object-cover"
+                    />
                     <div className="font-base text-sm flex justify-between pt-2">
                         <p className="w-1/2">Product I</p>
                         <p className="w-1/2 text-end font-light">$14,405</p>
                     </div>
                 </div>
                 <div className="w-[20rem] shrink-0">
-                    <img src={'/home/home-feat-2.jpg'} alt="home-feat-1" className="w-full object-cover"/>
+                    <img
+                        src={'/home/home-feat-2.jpg'}
+                        alt="home-feat-1"
+                        className="w-full object-cover"
+                    />
                     <div className="font-base text-sm flex justify-between pt-2">
                         <p className="w-1/2">Product II</p>
                         <p className="w-1/2 text-end font-light">$14,405</p>
                     </div>
                 </div>
                 <div className="w-[20rem] shrink-0">
-                    <img src={'/home/home-feat-3.jpg'} alt="home-feat-1" className="w-full object-cover"/>
+                    <img
+                        src={'/home/home-feat-3.jpg'}
+                        alt="home-feat-1"
+                        className="w-full object-cover"
+                    />
                     <div className="font-base text-sm flex justify-between pt-2">
                         <p className="w-1/2">Product III</p>
                         <p className="w-1/2 text-end font-light">$14,405</p>
                     </div>
                 </div>
                 <div className="w-[20rem] shrink-0">
-                    <img src={'/home/home-feat-4.jpg'} alt="home-feat-1" className="w-full object-cover"/>
+                    <img
+                        src={'/home/home-feat-4.jpg'}
+                        alt="home-feat-1"
+                        className="w-full object-cover"
+                    />
                     <div className="font-base text-sm flex justify-between pt-2">
                         <p className="w-1/2">Product IV</p>
                         <p className="w-1/2 text-end font-light">$14,405</p>
                     </div>
                 </div>
                 <div className="w-[20rem] shrink-0">
-                    <img src={'/home/home-feat-5.jpg'} alt="home-feat-1" className="w-full object-cover"/>
+                    <img
+                        src={'/home/home-feat-5.jpg'}
+                        alt="home-feat-1"
+                        className="w-full object-cover"
+                    />
                     <div className="font-base text-sm flex justify-between pt-2">
                         <p className="w-1/2">Product V</p>
                         <p className="w-1/2 text-end font-light">$14,405</p>
                     </div>
                 </div>
+                <div className="shrink-0 self-center">
+                    <Link href='/products' className='flex gap-1'>
+                        <h1>SEE ALL</h1>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="size-6"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                            />
+                        </svg>
+                    </Link>
+                </div>
             </div>
             <div className="w-screen h-screen flex gap-5 p-5">
                 <div className="flex-1 w-[calc(100vw/3-5rem/3)] relative justify-center flex items-center">
-                    <h1 className="text-[#FFF] font-marcel text-5xl select-none">UNESSENTIALS</h1>
+                    <h1 className="text-[#FFF] font-marcel text-5xl select-none">
+                        UNESSENTIALS
+                    </h1>
                     <img
                         src={'/home/home-coll-1.jpg'}
                         className="object-cover h-full absolute top-0 -z-50"
@@ -58,7 +101,9 @@ export default function Home() {
                     />
                 </div>
                 <div className="flex-1 w-[calc(100vw/3-5rem/3)] relative justify-center flex items-center">
-                    <h1 className="text-[#FFF] font-marcel text-5xl select-none">FEAR OF DOG</h1>
+                    <h1 className="text-[#FFF] font-marcel text-5xl select-none">
+                        FEAR OF DOG
+                    </h1>
                     <img
                         src={'/home/home-coll-2.jpg'}
                         className="object-cover h-full absolute top-0 -z-50"
@@ -66,7 +111,9 @@ export default function Home() {
                     />
                 </div>
                 <div className="flex-1 w-[calc(100vw/3-5rem/3)] relative justify-center flex items-center">
-                    <h1 className="text-[#FFF] font-marcel text-5xl select-none">ATHLETICS</h1>
+                    <h1 className="text-[#FFF] font-marcel text-5xl select-none">
+                        ATHLETICS
+                    </h1>
                     <img
                         src={'/home/home-coll-3.jpg'}
                         className="object-cover h-full absolute top-0 -z-50"
@@ -88,11 +135,17 @@ export default function Home() {
                     </p>
                 </div>
                 <div className="w-1/2 flex justify-between relative">
-                        <p className="select-none hover:underline">terms & conditions</p>
-                        <p className="select-none hover:underline">privacy policy</p>
-                        <p className="select-none hover:underline">cookie policy</p>
-                        <p className="select-none hover:underline">contact us</p>
-                    <p className="text-sm font-light absolute bottom-0 right-0">© copyright 2024</p>
+                    <p className="select-none hover:underline">
+                        terms & conditions
+                    </p>
+                    <p className="select-none hover:underline">
+                        privacy policy
+                    </p>
+                    <p className="select-none hover:underline">cookie policy</p>
+                    <p className="select-none hover:underline">contact us</p>
+                    <p className="text-sm font-light absolute bottom-0 right-0">
+                        © copyright 2024
+                    </p>
                 </div>
             </div>
         </>
