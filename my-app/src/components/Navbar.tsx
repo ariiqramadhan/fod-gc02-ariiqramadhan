@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function Navbar() {
+export default function Navbar({ isLogin }: { isLogin: boolean }) {
     const [color, setColor] = useState(false);
 
     function changeColor() {
@@ -30,7 +30,7 @@ export default function Navbar() {
             <div className="flex-1 justify-start gap-12 text-xs">
                 <a href="" className="hover:underline">FEAR OF DOG</a>
                 <a href="" className="hover:underline">UNESSENTIALS</a>
-                <a href="" className="hover:underline">ATHLETICS</a>
+                <a href="" className="hover:underline">PRODUCTS</a>
             </div>
             <div className="flex-1 justify-center">
                 <Link
@@ -42,7 +42,7 @@ export default function Navbar() {
             </div>
             <div className="flex-1 justify-end gap-12 text-xs">
                 <a href="" className="hover:underline">SEARCH</a>
-                <a href="" className="hover:underline">ACCOUNT</a>
+                {isLogin ? <Link href='/profile' className="hover:underline">ACCOUNT</Link> : <Link href='/login'  className="hover:underline">ACCOUNT</Link>}
                 <a href="" className="hover:underline">BAG</a>
             </div>
         </div>
