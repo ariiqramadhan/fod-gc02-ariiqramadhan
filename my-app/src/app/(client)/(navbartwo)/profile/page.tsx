@@ -18,7 +18,6 @@ export default async function Profile() {
         }
     });
     const user = (await data.json()) as Omit<User, 'password'>;
-    console.log(user);
     return (
         <div className="w-screen h-screen flex flex-col items-center justify-center gap-16">
             <div className="w-2/5">
