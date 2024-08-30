@@ -1,6 +1,7 @@
 import { UserInput } from "@/types";
 import { hashPassword } from "../helpers/bcrypt";
 import { getDB } from "../config";
+import { ObjectId } from "mongodb";
 
 const USER_COLL = "users";
 
@@ -32,5 +33,13 @@ export const getUserByUsername = async (username: string) => {
     const users = db.collection(USER_COLL);
 
     const findUser = await users.findOne({ username });
+    return findUser;
+}
+
+export const getUserById = async (_id: string) => {
+    const db = await getDB();
+
+    const users = db.collection(USER_COLL);
+    const findUser = await users.findOne({_id: new ObjectId(_id)}, {projection: {password: 0}});
     return findUser;
 }

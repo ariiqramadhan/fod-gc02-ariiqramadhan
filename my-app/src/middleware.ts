@@ -13,7 +13,7 @@ interface TypeJWT {
 }
  
 export async function middleware(req: NextRequest) {
-    if (req.url.includes('/wishlist')) {
+    if (req.url.includes('/wishlist') || req.url.includes('/profile')) {
         const auth = cookies().get('Authorization');
 
         if (!auth) {
