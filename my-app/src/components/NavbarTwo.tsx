@@ -4,7 +4,7 @@ import Link from "next/link";
 export default async function NavbarTwo() {
     const isLogin = await checkCookies();
     return (
-        <div className="navbar flex justify-between px-16 text-[#000] fixed z-50">
+        <div className="navbar flex justify-between px-16 text-[#000] fixed z-50 top-0 bg-[#FFF]">
             <div className="flex-1 justify-start gap-12 text-xs">
                 <a href="" className="hover:underline">FEAR OF DOG</a>
                 <a href="" className="hover:underline">UNESSENTIALS</a>
