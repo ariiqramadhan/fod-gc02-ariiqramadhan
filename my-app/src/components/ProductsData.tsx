@@ -5,6 +5,7 @@ import { Product } from '@/types';
 import { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Search from './Search';
+import ProductList from './ProductList';
 
 export default function ProductsData() {
     const [search, setSearch] = useState('');
@@ -57,9 +58,7 @@ export default function ProductsData() {
                     }
                     className="grid grid-cols-3 px-16 gap-8 py-8"
                 >
-                    {data?.map((product, i) => (
-                        <ProductCard product={product} key={`${product._id}`} />
-                    ))}
+                    <ProductList data={data}/>
                 </InfiniteScroll>
             ) : ''}
             {data?.length === totalData ? (
