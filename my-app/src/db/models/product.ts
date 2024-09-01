@@ -9,7 +9,7 @@ export const getProducts = async (search: string, page: number) => {
         {
           '$match': {
             'name': {
-              '$regex': '', 
+              '$regex': search, 
               '$options': 'i'
             }
           }
@@ -21,7 +21,7 @@ export const getProducts = async (search: string, page: number) => {
     ];
 
     const products = db.collection(PRODUCTS_COLL);
-    const totalData = await products.count();
+    const totalData = await products.count({name: {$regex: search, $options: 'i'}});
     const cursor = products.aggregate(agg);
     const data = await cursor.toArray();
 

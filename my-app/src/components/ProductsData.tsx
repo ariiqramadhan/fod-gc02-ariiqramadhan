@@ -4,6 +4,7 @@ import { BASE_URL } from '@/constant';
 import { Product } from '@/types';
 import { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Search from './Search';
 
 export default function ProductsData() {
     const [search, setSearch] = useState('');
@@ -17,6 +18,7 @@ export default function ProductsData() {
             body: JSON.stringify(body),
         });
         const products = await res.json();
+        setPage(1);
         setData(products.data);
         setTotalData(products.totalData);
     }
@@ -24,7 +26,7 @@ export default function ProductsData() {
     async function nextData() {
         const body = {
             page: page + 1,
-            search,
+            search: search,
         };
 
         setTimeout(async () => {
@@ -43,11 +45,16 @@ export default function ProductsData() {
     }, []);
     return (
         <>
+            <Search setSearch={setSearch} getProducts={getProducts} setData={setData}/>
             <InfiniteScroll
                 dataLength={data?.length}
                 next={nextData}
                 hasMore={data?.length === totalData ? false : true}
-                loader={<h1>TEST</h1>}
+                loader={
+                    <div className='flex items-center justify-center w-screen'>
+                        <span className="loading loading-dots loading-lg"></span>
+                    </div>
+                }
                 className="grid grid-cols-3 px-16 gap-8 py-8"
             >
                 {data?.map((product, i) => (
