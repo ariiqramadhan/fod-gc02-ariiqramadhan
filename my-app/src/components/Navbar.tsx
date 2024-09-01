@@ -61,9 +61,15 @@ export default function Navbar({ isLogin }: { isLogin: boolean }) {
                         ACCOUNT
                     </Link>
                 )}
-                <a href="" className="hover:underline">
-                    BAG
-                </a>
+                {isLogin ? (
+                    <Link href="/wishlist" className="hover:underline">
+                        WISHLIST
+                    </Link>
+                ) : (
+                    <Link href="/login" className="hover:underline">
+                        WISHLIST
+                    </Link>
+                )}
             </div>
         </div>
     );
