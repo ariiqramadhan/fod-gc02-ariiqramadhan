@@ -37,7 +37,6 @@ export default function ProductsData() {
             const products = await res.json();
             setData(data.concat(products.data));
             setPage(page + 1);
-            console.log('jalan nextdata');
         }, 500);
     }
 
