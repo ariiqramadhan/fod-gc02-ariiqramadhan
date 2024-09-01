@@ -13,10 +13,7 @@ export default function ProductsData() {
     const [data, setData] = useState<Product[]>([]);
 
     async function getProducts(body: { search: string; page: number }) {
-        const res = await fetch(BASE_URL + '/api/products', {
-            method: 'POST',
-            body: JSON.stringify(body),
-        });
+        const res = await fetch(BASE_URL + `/api/products?page=${body.page}&search=${body.search}`);
         const products = await res.json();
         setPage(1);
         setData(products.data);
@@ -30,10 +27,7 @@ export default function ProductsData() {
         };
 
         setTimeout(async () => {
-            const res = await fetch(BASE_URL + '/api/products', {
-                method: 'POST',
-                body: JSON.stringify(body),
-            });
+            const res = await fetch(BASE_URL + `/api/products?page=${page+1}&search=${search}`);
             const products = await res.json();
             setData(data.concat(products.data));
             setPage(page + 1);
@@ -51,7 +45,7 @@ export default function ProductsData() {
                 getProducts={getProducts}
                 setData={setData}
             />
-            {data.length ? (
+            {data?.length ? (
                 <InfiniteScroll
                     dataLength={data?.length}
                     next={nextData}
@@ -67,11 +61,7 @@ export default function ProductsData() {
                         <ProductCard product={product} key={`${product._id}`} />
                     ))}
                 </InfiniteScroll>
-            ) : (
-                <div className="flex items-center justify-center w-screen">
-                    <span className="loading loading-dots loading-lg"></span>
-                </div>
-            )}
+            ) : ''}
             {data?.length === totalData ? (
                 <div className="flex justify-center pb-8 font-semibold text-lg">
                     END OF THE PRODUCTS
