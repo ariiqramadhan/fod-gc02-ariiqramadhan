@@ -52,7 +52,7 @@ export default function ProductsData() {
                     next={nextData}
                     hasMore={data?.length === totalData ? false : true}
                     loader={
-                        <div className="flex items-center justify-center w-screen">
+                        <div className="flex items-center justify-center w-[calc(100vw-4rem)]">
                             <span className="loading loading-dots loading-lg"></span>
                         </div>
                     }
