@@ -9,7 +9,8 @@ export const metadata: Metadata = {
     description: 'Sign In to your account for Fear Of Dog website'
 }
 
-export default function Login() {
+export default function Login({ searchParams } : { searchParams: { error: string } }) {
+    const { error } = searchParams;
     async function handleLogin(formData: FormData) {
         "use server"
 
@@ -41,6 +42,9 @@ export default function Login() {
             <div className="w-2/5">
                 <form action={handleLogin} className="w-full flex flex-col gap-4">
                     <h1 className="font-thin">LOGIN</h1>
+                    {error ? <div className='w-full border border-red-400'>
+                        <p className='p-2 text-center text-red-400 text-sm'>{error.toUpperCase()}</p>
+                    </div> : ''}
                     <input
                         type="text"
                         placeholder="USERNAME"

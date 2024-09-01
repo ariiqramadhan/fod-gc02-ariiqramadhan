@@ -9,7 +9,8 @@ export const metadata: Metadata = {
     description: 'Sign Up new account for Fear Of Dog website'
 }
 
-export default function Register() {
+export default function Register({ searchParams } : { searchParams: { error: string } }) {
+    const { error } = searchParams;
     async function handleRegister(formData: FormData) {
         "use server"
 
@@ -40,6 +41,9 @@ export default function Register() {
             <h1 className="text-5xl font-bold select-none">FEAR OF DOG</h1>
             <div className="w-2/5">
                 <form action={handleRegister} className="w-full flex flex-col gap-4">
+                    {error ? <div className='w-full border border-red-400'>
+                        <p className='p-2 text-center text-red-400 text-sm'>{error.toUpperCase()}</p>
+                    </div> : ''}
                     <input
                         type="text"
                         name="name"
