@@ -13,7 +13,7 @@ export default function Search({ setSearch, getProducts, setData }: { setSearch:
             <div className="w-1/4">
                 <input
                     type="text"
-                    placeholder="Search"
+                    placeholder="SEARCH"
                     className="border border-[#000] p-1 focus:outline-none rounded-none w-full"
                     onChange={debounce(debounceFunc, 500)}
                 />

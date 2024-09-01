@@ -1,15 +1,20 @@
 import { checkCookies } from '@/actions';
 import Navbar from '@/components/Navbar';
 import Promo from '@/components/Promo';
+import { BASE_URL } from '@/constant';
+import { toCurrency } from '@/db/helpers/currency';
+import { Products } from '@/types';
 import Link from 'next/link';
 
 export default async function Home() {
     const isLogin = await checkCookies();
+    const data = await fetch(BASE_URL + '/api/newproducts');
+    const newProducts = (await data.json()) as Products;
     return (
         <>
             <Promo />
             <div>
-                <Navbar isLogin={isLogin}/>
+                <Navbar isLogin={isLogin} />
                 <div className="w-screen h-screen flex justify-center relative">
                     <h1 className="text-center self-center text-9xl text-[#FFF] select-none font-cardo">
                         SUMMER 2024
@@ -21,61 +26,23 @@ export default async function Home() {
                     />
                 </div>
                 <div className="p-5 flex overflow-x-auto gap-5">
-                    <div className="w-[20rem] shrink-0">
-                        <img
-                            src={'/home/home-feat-1.jpg'}
-                            alt="home-feat-1"
-                            className="w-full object-cover"
-                        />
-                        <div className="font-base text-sm flex justify-between pt-2">
-                            <p className="w-1/2">Product I</p>
-                            <p className="w-1/2 text-end font-light">$14,405</p>
-                        </div>
-                    </div>
-                    <div className="w-[20rem] shrink-0">
-                        <img
-                            src={'/home/home-feat-2.jpg'}
-                            alt="home-feat-1"
-                            className="w-full object-cover"
-                        />
-                        <div className="font-base text-sm flex justify-between pt-2">
-                            <p className="w-1/2">Product II</p>
-                            <p className="w-1/2 text-end font-light">$14,405</p>
-                        </div>
-                    </div>
-                    <div className="w-[20rem] shrink-0">
-                        <img
-                            src={'/home/home-feat-3.jpg'}
-                            alt="home-feat-1"
-                            className="w-full object-cover"
-                        />
-                        <div className="font-base text-sm flex justify-between pt-2">
-                            <p className="w-1/2">Product III</p>
-                            <p className="w-1/2 text-end font-light">$14,405</p>
-                        </div>
-                    </div>
-                    <div className="w-[20rem] shrink-0">
-                        <img
-                            src={'/home/home-feat-4.jpg'}
-                            alt="home-feat-1"
-                            className="w-full object-cover"
-                        />
-                        <div className="font-base text-sm flex justify-between pt-2">
-                            <p className="w-1/2">Product IV</p>
-                            <p className="w-1/2 text-end font-light">$14,405</p>
-                        </div>
-                    </div>
-                    <div className="w-[20rem] shrink-0">
-                        <img
-                            src={'/home/home-feat-5.jpg'}
-                            alt="home-feat-1"
-                            className="w-full object-cover"
-                        />
-                        <div className="font-base text-sm flex justify-between pt-2">
-                            <p className="w-1/2">Product V</p>
-                            <p className="w-1/2 text-end font-light">$14,405</p>
-                        </div>
-                    </div>
+                    {newProducts.map((product) => {
+                        return (
+                            <div className="w-[20rem] shrink-0">
+                                <img
+                                    src={product.thumbnail}
+                                    alt={product.slug}
+                                    className="w-full object-cover"
+                                />
+                                <div className="font-base text-sm flex justify-between pt-2">
+                                    <p className="w-1/2">{product.name}</p>
+                                    <p className="w-1/2 text-end font-light">
+                                        {toCurrency(product.price)}
+                                    </p>
+                                </div>
+                            </div>
+                        );
+                    })}
                     <div className="shrink-0 self-center">
                         <Link href="/products" className="flex gap-1">
                             <h1>SEE ALL</h1>

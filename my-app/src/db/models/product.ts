@@ -37,3 +37,22 @@ export const getProductsById = async (_id: string) => {
 
     return findProduct;
 }
+
+export const getNewestProducts = async () => {
+    const db = await getDB();
+
+    const agg = [
+        {
+          '$sort': {
+            'createdAt': -1
+          }
+        }, {
+          '$limit': 10
+        }
+    ];
+    const products = db.collection(PRODUCTS_COLL);
+    const cursor = products.aggregate(agg);
+    const data = await cursor.toArray();
+      
+    return data;
+}

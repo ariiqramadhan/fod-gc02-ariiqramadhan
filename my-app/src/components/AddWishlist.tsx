@@ -7,7 +7,7 @@ export default function AddWishlist({ params }: { params: { slug: string } }) {
     const productId = slug[slug.length-1];
     return (
         <button 
-            className="btn border rounded-none bg-[#AFAFAF] text-[#FFF] text-xs font-light w-full"
+            className="btn border rounded-none bg-[#000] text-[#FFF] text-xs font-light w-full hover:bg-[#242424]"
             onClick={() => addWishlist(productId)}
         >
             ADD WISHLIST
