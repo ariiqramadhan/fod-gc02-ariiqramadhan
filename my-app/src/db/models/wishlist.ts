@@ -15,8 +15,11 @@ export const addWishlist = async (input: WishlistInput) => {
     }
 
     const wishlist = db.collection(WISHLIST_COLL);
-    const data = await wishlist.insertOne(input);
-    return data;
+    const findWishlist = await wishlist.findOne({productId: input.productId, userId: input.userId})
+    if (!findWishlist) {
+        const data = await wishlist.insertOne(input);
+        return data;
+    }
 }
 
 export const delWishlist = async (wishlistId: ObjectId, userId: string) => {
