@@ -1,3 +1,5 @@
+'use client'
+
 import { Products } from "@/types";
 import ProductCard from "./ProductCard";
 
