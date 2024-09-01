@@ -1,8 +1,6 @@
 'use client'
 
-import { addWishlist, checkCookies } from "@/actions";
-import { BASE_URL } from "@/constant";
-import { useRouter } from "next/navigation";
+import { addWishlist } from "@/actions";
 
 export default function AddWishlist({ params }: { params: { slug: string } }) {
     const slug = params.slug.split('-');
