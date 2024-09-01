@@ -26,9 +26,9 @@ export default async function Home() {
                     />
                 </div>
                 <div className="p-5 flex overflow-x-auto gap-5">
-                    {newProducts.map((product) => {
+                    {newProducts.map((product, i) => {
                         return (
-                            <Link href={`/products/${product.slug}`}>
+                            <Link href={`/products/${product.slug}`} key={i}>
                                 <div className="w-[20rem] shrink-0">
                                     <img
                                         src={product.thumbnail}
