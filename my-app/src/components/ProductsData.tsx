@@ -44,17 +44,23 @@ export default function ProductsData() {
     return (
         <>
             <InfiniteScroll
-                dataLength={data.length}
+                dataLength={data?.length}
                 next={nextData}
-                hasMore={data.length === totalData ? false : true}
+                hasMore={data?.length === totalData ? false : true}
                 loader={<h1>TEST</h1>}
-                className='grid grid-cols-3 px-16 gap-8 py-16'
+                className="grid grid-cols-3 px-16 gap-8 py-8"
             >
-                {data.map((product, i) => (
+                {data?.map((product, i) => (
                     <ProductCard product={product} key={`${product._id}`} />
                 ))}
             </InfiniteScroll>
-            {data.length === totalData ? <h1>THE END</h1> : ''}
+            {data?.length === totalData ? (
+                <div className="flex justify-center pb-8 font-semibold text-lg">
+                    END OF THE PRODUCTS
+                </div>
+            ) : (
+                ''
+            )}
         </>
     );
 }
