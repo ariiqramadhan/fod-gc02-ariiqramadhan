@@ -1,7 +1,13 @@
 import { BASE_URL } from '@/constant';
 import { User } from '@/types';
+import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+
+export const metadata: Metadata = {
+    title: 'User Profile | Fear Of Dog',
+    description: 'Fear Of Dog\'s user profile'
+}
 
 export default async function Profile() {
     async function handleLogout() {
