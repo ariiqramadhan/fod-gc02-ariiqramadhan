@@ -35,3 +35,33 @@ export const delWishlist = async (wishlistId: ObjectId, userId: string) => {
     const data = await wishlist.deleteOne({ _id: wishlistId });
     return data;
 }
+
+export const getWishlistByUser = async (userId: string) => {
+    const db = await getDB();
+
+    const agg = [
+        {
+          '$match': {
+            'userId': new ObjectId(userId)
+          }
+        }, {
+          '$lookup': {
+            'from': 'products', 
+            'localField': 'productId', 
+            'foreignField': '_id', 
+            'as': 'product'
+          }
+        }, {
+          '$unwind': {
+            'path': '$product', 
+            'preserveNullAndEmptyArrays': true
+          }
+        }
+      ];
+
+    const wishlist = db.collection(WISHLIST_COLL);
+    const cursor = wishlist.aggregate(agg);
+    const data = await cursor.toArray();
+
+    return data;
+}

@@ -1,5 +1,10 @@
+import WishlistList from "@/components/WishlistList";
+
 export default function Wishlist() {
     return (
-        <h1 className="mt-16">TEST WISHLIST</h1>
-    )
+        <div className="flex flex-col mt-16 p-16 gap-4 items-center">
+            <h1 className="text-4xl font-bold">WISHLIST</h1>
+            <WishlistList />
+        </div>
+    );
 }

@@ -1,4 +1,4 @@
-import { addWishlist, delWishlist } from "@/db/models/wishlist";
+import { addWishlist, delWishlist, getWishlistByUser } from "@/db/models/wishlist";
 import { WishlistInput } from "@/types";
 import { ObjectId } from "mongodb";
 import { headers } from "next/headers";
@@ -51,5 +51,17 @@ export async function DELETE(req: NextRequest) {
             }
         }
         return NextResponse.json({message: 'Internal Server Error'}, { status: 500 });
+    }
+}
+
+export async function GET(req: NextRequest) {
+    try {
+        const userId = (headers().get('x-user-id')) as string;
+
+        const data = await getWishlistByUser(userId);
+    
+        return NextResponse.json(data);
+    } catch (err) {
+        return NextResponse.json({message: 'Internal Server Error'}, { status: 500 })
     }
 }
