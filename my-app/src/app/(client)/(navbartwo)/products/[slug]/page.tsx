@@ -1,3 +1,4 @@
+import AddWishlist from '@/components/AddWishlist';
 import { BASE_URL } from '@/constant';
 import { toCurrency } from '@/db/helpers/currency';
 import { Product } from '@/types';
@@ -52,13 +53,11 @@ export default async function ProductDetail({
                             {product.description}
                         </p>
                         <div className='flex gap-4'>
-                            {product.tags.map((tag) => (
-                                <button className='btn btn-sm rounded-none bg-[#FFF] border-[#000] text-xs hover:text-[#FFF] hover:bg-[#000] hover:border-[#000]'>{tag.toUpperCase()}</button>
+                            {product.tags.map((tag, i) => (
+                                <button key={i} className='btn btn-sm rounded-none bg-[#FFF] border-[#000] text-xs hover:text-[#FFF] hover:bg-[#000] hover:border-[#000]'>{tag.toUpperCase()}</button>
                             ))}
                         </div>
-                        <button className="btn border rounded-none bg-[#AFAFAF] text-[#FFF] text-xs font-light w-full">
-                            ADD WISHLIST
-                        </button>
+                        <AddWishlist params={params}/>
                     </div>
                     <div className="flex flex-col gap-4 pt-4">
                         <h1 className="text-sm">
