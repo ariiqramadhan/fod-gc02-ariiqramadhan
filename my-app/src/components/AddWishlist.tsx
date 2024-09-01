@@ -1,11 +1,16 @@
 'use client'
 
+import { checkCookies } from "@/actions";
 import { BASE_URL } from "@/constant";
 import { useRouter } from "next/navigation";
 
 export default function AddWishlist({ params }: { params: { slug: string } }) {
     const router = useRouter();
     async function addWishlist() {
+        const isLogin = await checkCookies();
+        if (!isLogin) {
+            return router.push('/login');
+        }
         const slug = params.slug.split('-');
         const productId = slug[slug.length-1];
         await fetch(BASE_URL + '/api/wishlist', {
