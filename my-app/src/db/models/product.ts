@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import { getDB } from "../config"
 
 const PRODUCTS_COLL = 'products';
@@ -26,4 +27,13 @@ export const getProducts = async (search: string, page: number) => {
     const data = await cursor.toArray();
 
     return {totalData, data};
+}
+
+export const getProductsById = async (_id: string) => {
+    const db = await getDB();
+
+    const products = db.collection(PRODUCTS_COLL);
+    const findProduct = await products.findOne({_id: new ObjectId(_id)});
+
+    return findProduct;
 }
