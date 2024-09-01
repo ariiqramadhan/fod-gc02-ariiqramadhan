@@ -28,19 +28,21 @@ export default async function Home() {
                 <div className="p-5 flex overflow-x-auto gap-5">
                     {newProducts.map((product) => {
                         return (
-                            <div className="w-[20rem] shrink-0">
-                                <img
-                                    src={product.thumbnail}
-                                    alt={product.slug}
-                                    className="w-full object-cover"
-                                />
-                                <div className="font-base text-sm flex justify-between pt-2">
-                                    <p className="w-1/2">{product.name}</p>
-                                    <p className="w-1/2 text-end font-light">
-                                        {toCurrency(product.price)}
-                                    </p>
+                            <Link href={`/products/${product.slug}`}>
+                                <div className="w-[20rem] shrink-0">
+                                    <img
+                                        src={product.thumbnail}
+                                        alt={product.slug}
+                                        className="w-full object-cover"
+                                    />
+                                    <div className="font-base text-sm flex justify-between pt-2">
+                                        <p className="w-1/2">{product.name}</p>
+                                        <p className="w-1/2 text-end font-light">
+                                            {toCurrency(product.price)}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         );
                     })}
                     <div className="shrink-0 self-center">
